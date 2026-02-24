@@ -1,2 +1,2 @@
 # quiz-generator-ia
-Um gerador de questões para estudar, também irá responder dúvidas sobre as questões e o conteúdo.
+Um gerador de questões com IA, também irá responder dúvidas sobre as questões e o conteúdo.
