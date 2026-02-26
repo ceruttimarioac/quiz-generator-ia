@@ -1,0 +1,41 @@
+Visão geral do projeto
+O projeto consiste em uma aplicação web para estudo que gera quizzes com auxílio de IA e permite que o usuário tire dúvidas sobre as questões. A aplicação utilizará a API do Gemini para geração de conteúdo e um banco de dados PostgreSQL para cadastro, autenticação e persistência do histórico de quizzes. O frontend será desenvolvido em React com JavaScript.
+
+Escopo e regras principais
+Cada quiz deve conter exatamente 10 perguntas (regra fixa).
+O usuário poderá solicitar explicações/"dúvidas" sobre as perguntas (funcionalidade opcional por pergunta, mas disponível no sistema).
+O sistema deve exibir as fontes usadas para construir o quiz e deve privilegiar fontes confiáveis (ex.: sites institucionais, artigos científicos).
+
+Requisitos funcionais (RF)
+RF01 — Cadastro de usuário: O sistema deve permitir que um usuário crie uma conta informando, no mínimo, e-mail (ou usuário) e senha, validando campos obrigatórios.
+
+RF02 — Login e autenticação: O sistema deve permitir login com credenciais válidas e manter a sessão do usuário autenticado para acesso às funcionalidades do quiz.​
+
+RF03 — Geração de quiz (10 perguntas): O sistema deve permitir que o usuário informe um tema e, a partir dele, gerar um quiz contendo exatamente 10 perguntas relacionadas ao tema.
+​
+RF04 — Persistência do histórico: O sistema deve salvar no banco de dados os últimos 3 quizzes gerados por usuário, incluindo pelo menos: tema, lista de perguntas, data/hora de criação e fontes.
+
+RF05 — Consulta de histórico: O sistema deve permitir que o usuário visualize os últimos 3 quizzes salvos e selecione um deles para revisão.
+​
+RF06 — Perguntar sobre uma pergunta: Em cada pergunta do quiz, o sistema deve permitir que o usuário envie uma pergunta de esclarecimento (ex.: "por que essa alternativa é correta?") e receba uma resposta da IA vinculada à questão.
+​
+RF07 — Exibição de fontes: O sistema deve apresentar uma aba para as fontes utilizadas para montar o quiz (por pergunta e/ou por quiz), exibindo ao menos título/descrição e link.
+​
+RF08 — Obtenção de respostas do quiz: O sistema deve gerar e apresentar as respostas das perguntas do quiz (por exemplo: gabarito e/ou explicação curta), vinculando cada resposta à respectiva pergunta.
+​
+RF09 — Critério de confiabilidade das fontes: O sistema deve priorizar fontes confiáveis (ex.: domínios institucionais, publicações científicas e repositórios acadêmicos) ao montar o quiz e ao justificar respostas.
+​
+
+Requisitos não funcionais (RNF)
+RNF01 — Usabilidade: A interface deve ser simples e permitir gerar um quiz em poucos passos.
+​
+RNF02 — Desempenho: O sistema deve responder às ações principais (login, abrir histórico e exibir quiz já salvo) em tempo adequado, login e cadastro no máximo 3 segundos e gerar o quis no máximo 20 segundos.
+
+RNF03 — Segurança: Senhas devem ser armazenadas de forma segura (hash), e a aplicação deve proteger rotas autenticadas e dados do usuário.(opcional/se houver tempo)
+​
+
+Tecnologias(não sei se utilizaremos essas tecnologias ainda)
+Frontend: React + JavaScript.
+Backend/API: recomendado um backend (ex.: Node/Typescript) para intermediar autenticação, banco e chamadas à API do Gemini.
+Banco de dados: PostgreSQL.
+IA: Gemini API (Google AI for Developers).
