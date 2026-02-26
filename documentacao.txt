@@ -25,8 +25,11 @@ RF08 — Obtenção de respostas do quiz: O sistema deve gerar e apresentar as r
 ​
 RF09 — Critério de confiabilidade das fontes: O sistema deve priorizar fontes confiáveis (ex.: domínios institucionais, publicações científicas e repositórios acadêmicos) ao montar o quiz e ao justificar respostas.
 ​
+RF10 — Logout, o sistema deve permitir que o usuário faça logout e retorne para a tela de login.
 
+RF11 — Mensagem de erro no login, o sistema deve mostrar uma mensagem quando o usuário informar dados incorretos.
 Requisitos não funcionais (RNF)
+
 RNF01 — Usabilidade: A interface deve ser simples e permitir gerar um quiz em poucos passos.
 ​
 RNF02 — Desempenho: O sistema deve responder às ações principais (login, abrir histórico e exibir quiz já salvo) em tempo adequado, login e cadastro no máximo 3 segundos e gerar o quis no máximo 20 segundos.
