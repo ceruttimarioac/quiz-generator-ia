@@ -42,3 +42,27 @@ Frontend: React + JavaScript.
 Backend/API: recomendado um backend (ex.: Node/Typescript) para intermediar autenticação, banco e chamadas à API do Gemini.
 Banco de dados: PostgreSQL.
 IA: Gemini API (Google AI for Developers).
+
+
+DOD
+
+1. Atende 100% dos criterios de aceitacao.
+
+2. Regra das 10 perguntas validada.
+
+3. Historico limitado aos ultimos 3 quizzes.
+
+4. Fontes exibidas corretamente.
+
+5. Perguntas de esclarecimento funcionando por questao.
+
+
+DOR
+
+1. Banco de dados Postgres, pronto para realizar os testes;
+
+2. API do GEMINI(APIKEY) pronta para utilizar;
+
+3. Ambiente de desenvolvimento pronto para iniciar.
+
+
