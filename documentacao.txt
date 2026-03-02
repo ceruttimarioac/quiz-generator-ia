@@ -44,6 +44,14 @@ Banco de dados: PostgreSQL.
 IA: Gemini API (Google AI for Developers).
 
 
+Processos
+O usuario realiza cadastro informando e-mail e senha, e o sistema valida e armazena os dados com segurança (RF01, RNF03). Em seguida, realiza login com credenciais validas, iniciando uma sessao autenticada (RF02, RF11, RNF02, RNF03).
+Apos autenticado, o usuario informa um tema para estudo e solicita a geracao do quiz. O backend envia a solicitacao para a API do Gemini, que retorna exatamente 10 perguntas com respostas e fontes confiaveis (RF03, RF08, RF09, RNF02). O tempo maximo para geracao deve ser de ate 20 segundos (RNF02).
+O sistema salva no PostgreSQL o quiz gerado (tema, perguntas, data/hora e fontes), mantendo apenas os ultimos 3 quizzes por usuario (RF04). O usuario pode acessar e revisar quizzes anteriores pelo historico (RF05, RNF01).
+Em cada pergunta, o usuario pode enviar uma duvida, que sera respondida pela IA com base na questao e nas fontes utilizadas (RF06, RF07). O sistema exibe as fontes vinculadas ao quiz para garantir transparencia e confiabilidade (RF07, RF09).
+Por fim, o usuario pode realizar logout, encerrando sua sessao e retornando a tela de login (RF10, RNF03).
+
+
 DOD
 
 1. Atende 100% dos criterios de aceitacao.
