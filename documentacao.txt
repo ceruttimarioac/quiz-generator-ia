@@ -30,6 +30,22 @@ RF10 — Logout, o sistema deve permitir que o usuário faça logout e retorne p
 RF11 — Mensagem de erro no login, o sistema deve mostrar uma mensagem quando o usuário informar dados incorretos.
 Requisitos não funcionais (RNF)
 
+RF12 — Exibição do resultado do quiz, Após responder as perguntas, o sistema deve exibir a quantidade de acertos e erros do usuário.
+
+RF13 — Mostrar progresso do quiz, O sistema deve mostrar quantas perguntas já foram respondidas. Exemplo: Pergunta 4 de 10.
+
+RF14 — Validação do tema, O sistema deve verificar se o usuário informou um tema válido antes de gerar o quiz. Exemplo de erro: "Digite um tema para gerar o quiz."
+
+RF15 — Limitar tamanho do tema. O sistema deve limitar o campo de tema para até 100 caracteres. Isso evita problemas com requisições.
+
+RF16 — Visualização das perguntas. O sistema deve apresentar uma pergunta por vez, permitindo navegar entre elas. Botões: Próxima e Anterior
+
+RF17 — Confirmar envio do quiz. Antes de finalizar o quiz, o sistema deve pedir confirmação do usuário. Exemplo: "Tem certeza que deseja finalizar o quiz?"
+
+RF18 — Mensagem quando não houver histórico. Caso o usuário não tenha quizzes salvos, o sistema deve exibir a mensagem: "Você ainda não gerou nenhum quiz."
+
+linha
+
 RNF01 — Usabilidade: A interface deve ser simples e permitir gerar um quiz em poucos passos.
 ​
 RNF02 — Desempenho: O sistema deve responder às ações principais (login, abrir histórico e exibir quiz já salvo) em tempo adequado, login e cadastro no máximo 3 segundos e gerar o quis no máximo 20 segundos.
