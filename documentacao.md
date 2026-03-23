@@ -1,7 +1,10 @@
 #Visão geral do projeto
+
 O projeto consiste em uma aplicação web de estudo que gera quizzes com auxílio de IA e permite que o usuário tire dúvidas sobre as questões. A aplicação utilizará a API do Gemini para geração de conteúdo e um banco de dados PostgreSQL para cadastro, autenticação, persistência de histórico e armazenamento dos quizzes. O frontend será desenvolvido em React com JavaScript.
 
+
 ###Requisitos funcionais
+
 RF01 — Cadastro de usuário: O sistema deve permitir que um usuário crie uma conta informando, no mínimo, e-mail ou usuário e senha, validando campos obrigatórios.
 
 RF02 — Login e autenticação: O sistema deve permitir login com credenciais válidas e manter a sessão do usuário autenticado para acesso às funcionalidades do quiz.
@@ -68,6 +71,7 @@ RF32 — Padronização do formato das perguntas: O sistema deve garantir que to
 
 RF33 — Registro de data e hora das interações: O sistema deve registrar a data e a hora das interações do usuário no quiz.
 
+
 ###Requisitos não funcionais
 RNF01 — Usabilidade: A interface deve ser simples e permitir gerar um quiz em poucos passos.
 
@@ -85,6 +89,7 @@ Banco de dados: PostgreSQL.
 
 IA: Gemini API, da Google AI for Developers.
 
+
 ###Processo do sistema
 
 O usuário realiza cadastro informando e-mail e senha, e o sistema valida e armazena os dados com segurança. Em seguida, realiza login com credenciais válidas, iniciando uma sessão autenticada.
@@ -97,6 +102,7 @@ Em cada pergunta, o usuário pode enviar uma dúvida, que será respondida pela 
 
 Por fim, o usuário pode realizar logout, encerrando sua sessão e retornando à tela de login.
 
+
 ###DOD
 
 Atende a 100% dos critérios de aceitação definidos.
@@ -107,33 +113,10 @@ Histórico limitado aos últimos 3 quizzes.
 
 Fontes exibidas corretamente.
 
-Perguntas de esclarecimento funcionando por questão.
+Quiz gerado de acordo com o tema.
 
-Validação de cadastro e login implementada corretamente.
+Cadastrar e logar com sucesso.
 
-Validação de login: O sistema deve autenticar usuários com credenciais corretas e exibir mensagem de erro para dados inválidos.
-
-Geração de quiz: O sistema deve gerar exatamente 10 perguntas para um tema válido e bloquear a geração para temas inválidos ou vazios.
-
-Validação do tema: O sistema deve impedir temas com mais de 100 caracteres e exibir mensagem de erro.
-
-Resolução do quiz: O sistema deve impedir o envio do quiz com perguntas não respondidas.
-
-Exibição de resultado: O sistema deve calcular e exibir corretamente a quantidade de acertos e erros.
-
-Persistência de histórico: O sistema deve salvar quizzes corretamente e manter apenas os últimos 3 por usuário.
-
-Ordenação do histórico: O sistema deve exibir os quizzes do mais recente para o mais antigo.
-
-Integração com IA: O sistema deve gerar perguntas e respostas corretamente e permitir dúvidas por questão.
-
-Exibição de fontes: O sistema deve apresentar fontes com título, descrição e link.
-
-Tratamento de erros: O sistema deve exibir mensagens claras em falhas de login, geração de quiz e comunicação com a API.
-
-Desempenho: O sistema deve realizar login em até 3 segundos e gerar quizzes em até 20 segundos.
-
-Segurança: O sistema deve armazenar senhas com hash e restringir o acesso aos dados do usuário autenticado.
 
 ###DOR
 Banco de dados PostgreSQL pronto para realizar os testes.
@@ -141,3 +124,67 @@ Banco de dados PostgreSQL pronto para realizar os testes.
 API do Gemini com chave pronta para utilização.
 
 Ambiente de desenvolvimento pronto para iniciar.
+
+
+###Testes
+
+Testes principais
+1. Cadastro de usuário
+Será testado se o sistema aceita e-mail e senha válidos, e se bloqueia campos vazios ou e-mail duplicado.
+No código, o teste verifica se a função de cadastro retorna sucesso quando os dados estão corretos e retorna erro quando falta informação.
+Também será verificado se a senha é salva de forma segura, usando hash, e não em texto puro.
+​
+
+2. Login
+Será testado se o sistema autentica o usuário com dados corretos e rejeita dados inválidos.
+No código, o teste confere se a resposta do login gera sessão ou token quando as credenciais estão certas.
+Também será testado se aparece mensagem de erro quando o e-mail ou a senha estiverem incorretos.
+
+3. Geração do quiz
+Será testado se, ao informar um tema válido, o sistema gera um quiz com exatamente 10 perguntas.
+No código, o teste confere se a resposta da função de geração sempre traz 10 itens e se o tema vazio ou muito longo é bloqueado.
+Também será testado se o sistema mostra erro quando a API do Gemini falhar.
+​
+
+4. Perguntas, respostas e fontes
+Será testado se cada pergunta possui alternativas identificadas, resposta correta e explicação.
+No código, o teste valida se a estrutura da pergunta segue o formato esperado.
+Também será testado se as fontes aparecem com título, descrição e link, e se a resposta da dúvida fica vinculada à pergunta certa.
+
+5. Histórico e revisão
+Será testado se o sistema salva os quizzes e mostra apenas os últimos 3 por usuário.
+No código, o teste verifica se o histórico vem ordenado do mais recente para o mais antigo e se aparece a mensagem quando não houver quiz salvo.
+Também será testado se o usuário consegue abrir um quiz antigo para revisão.
+​
+
+6. Finalização e logout
+Será testado se o sistema impede o envio do quiz quando faltar resposta e se pede confirmação antes de finalizar.
+No código, o teste confere se a função de envio retorna alerta quando existir pergunta sem resposta.
+Também será testado se o logout encerra a sessão e volta para a tela de login.
+
+Forma simples de organizar
+Uma forma prática de implementar esses testes é usar:
+
+Testes unitários para validar funções pequenas, como checar campos vazios, contar perguntas e ordenar histórico.
+
+Testes de integração para validar a comunicação entre frontend, backend e banco de dados.
+
+O que será verificado no código
+Em resumo, os testes vão conferir se:
+
+o cadastro funciona;
+
+o login funciona;
+
+o quiz sempre tem 10 perguntas;
+
+o histórico salva e limita os últimos 3 quizzes;
+
+as fontes aparecem corretamente;
+
+o usuário consegue revisar, responder e sair do sistema;
+
+as regras de erro e validação aparecem quando necessário.
+
+
+
