@@ -107,7 +107,8 @@ Em cada pergunta, o usuário pode enviar uma dúvida, que será respondida pela 
 Por fim, o usuário pode realizar logout, encerrando sua sessão e retornando à tela de login.
 
 DOD
-Atende 100% dos critérios de aceitação.
+
+Atende a 100% dos critérios de aceitação definidos.
 
 Regra das 10 perguntas validada.
 
@@ -116,6 +117,32 @@ Histórico limitado aos últimos 3 quizzes.
 Fontes exibidas corretamente.
 
 Perguntas de esclarecimento funcionando por questão.
+
+Validação de cadastro e login implementada corretamente.
+
+Validação de login: O sistema deve autenticar usuários com credenciais corretas e exibir mensagem de erro para dados inválidos.
+
+Geração de quiz: O sistema deve gerar exatamente 10 perguntas para um tema válido e bloquear a geração para temas inválidos ou vazios.
+
+Validação do tema: O sistema deve impedir temas com mais de 100 caracteres e exibir mensagem de erro.
+
+Resolução do quiz: O sistema deve impedir o envio do quiz com perguntas não respondidas.
+
+Exibição de resultado: O sistema deve calcular e exibir corretamente a quantidade de acertos e erros.
+
+Persistência de histórico: O sistema deve salvar quizzes corretamente e manter apenas os últimos 3 por usuário.
+
+Ordenação do histórico: O sistema deve exibir os quizzes do mais recente para o mais antigo.
+
+Integração com IA: O sistema deve gerar perguntas e respostas corretamente e permitir dúvidas por questão.
+
+Exibição de fontes: O sistema deve apresentar fontes com título, descrição e link.
+
+Tratamento de erros: O sistema deve exibir mensagens claras em falhas de login, geração de quiz e comunicação com a API.
+
+Desempenho: O sistema deve realizar login em até 3 segundos e gerar quizzes em até 20 segundos.
+
+Segurança: O sistema deve armazenar senhas com hash e restringir o acesso aos dados do usuário autenticado.
 
 DOR
 Banco de dados PostgreSQL pronto para realizar os testes.
