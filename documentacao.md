@@ -1,18 +1,7 @@
-Visão geral do projeto
+#Visão geral do projeto
 O projeto consiste em uma aplicação web de estudo que gera quizzes com auxílio de IA e permite que o usuário tire dúvidas sobre as questões. A aplicação utilizará a API do Gemini para geração de conteúdo e um banco de dados PostgreSQL para cadastro, autenticação, persistência de histórico e armazenamento dos quizzes. O frontend será desenvolvido em React com JavaScript.
 
-Escopo e regras principais
-Cada quiz deve conter exatamente 10 perguntas.
-
-O usuário poderá solicitar explicações ou dúvidas sobre as perguntas, de forma opcional por questão.
-
-O sistema deve exibir as fontes usadas para construir o quiz e deve privilegiar fontes confiáveis, como sites institucionais e artigos científicos.
-
-O sistema deve permitir regenerar um quiz sobre o mesmo tema, gerando um novo conjunto de perguntas.
-
-O sistema deve validar respostas, permitir revisão e destacar acertos e erros visualmente.
-
-Requisitos funcionais
+###Requisitos funcionais
 RF01 — Cadastro de usuário: O sistema deve permitir que um usuário crie uma conta informando, no mínimo, e-mail ou usuário e senha, validando campos obrigatórios.
 
 RF02 — Login e autenticação: O sistema deve permitir login com credenciais válidas e manter a sessão do usuário autenticado para acesso às funcionalidades do quiz.
@@ -79,14 +68,15 @@ RF32 — Padronização do formato das perguntas: O sistema deve garantir que to
 
 RF33 — Registro de data e hora das interações: O sistema deve registrar a data e a hora das interações do usuário no quiz.
 
-Requisitos não funcionais
+###Requisitos não funcionais
 RNF01 — Usabilidade: A interface deve ser simples e permitir gerar um quiz em poucos passos.
 
 RNF02 — Desempenho: O sistema deve responder às ações principais em tempo adequado, com login e cadastro em até 3 segundos, e geração do quiz em até 20 segundos.
 
 RNF03 — Segurança: As senhas devem ser armazenadas de forma segura, com hash, e a aplicação deve proteger rotas autenticadas e dados do usuário.
 
-Tecnologias
+###Tecnologias
+
 Frontend: React + JavaScript.
 
 Backend/API: recomendado backend em Node.js com TypeScript para intermediar autenticação, banco e chamadas à API do Gemini.
@@ -95,7 +85,8 @@ Banco de dados: PostgreSQL.
 
 IA: Gemini API, da Google AI for Developers.
 
-Processo do sistema
+###Processo do sistema
+
 O usuário realiza cadastro informando e-mail e senha, e o sistema valida e armazena os dados com segurança. Em seguida, realiza login com credenciais válidas, iniciando uma sessão autenticada.
 
 Após autenticado, o usuário informa um tema para estudo e solicita a geração do quiz. O backend envia a solicitação para a API do Gemini, que retorna exatamente 10 perguntas com respostas e fontes confiáveis. O sistema deve respeitar o limite máximo de 20 segundos para essa geração.
@@ -106,7 +97,7 @@ Em cada pergunta, o usuário pode enviar uma dúvida, que será respondida pela 
 
 Por fim, o usuário pode realizar logout, encerrando sua sessão e retornando à tela de login.
 
-DOD
+###DOD
 
 Atende a 100% dos critérios de aceitação definidos.
 
@@ -144,7 +135,7 @@ Desempenho: O sistema deve realizar login em até 3 segundos e gerar quizzes em 
 
 Segurança: O sistema deve armazenar senhas com hash e restringir o acesso aos dados do usuário autenticado.
 
-DOR
+###DOR
 Banco de dados PostgreSQL pronto para realizar os testes.
 
 API do Gemini com chave pronta para utilização.
