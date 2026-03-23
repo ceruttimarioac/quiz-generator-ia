@@ -1,92 +1,125 @@
 Visão geral do projeto
-O projeto consiste em uma aplicação web para estudo que gera quizzes com auxílio de IA e permite que o usuário tire dúvidas sobre as questões. A aplicação utilizará a API do Gemini para geração de conteúdo e um banco de dados PostgreSQL para cadastro, autenticação e persistência do histórico de quizzes. O frontend será desenvolvido em React com JavaScript.
+O projeto consiste em uma aplicação web de estudo que gera quizzes com auxílio de IA e permite que o usuário tire dúvidas sobre as questões. A aplicação utilizará a API do Gemini para geração de conteúdo e um banco de dados PostgreSQL para cadastro, autenticação, persistência de histórico e armazenamento dos quizzes. O frontend será desenvolvido em React com JavaScript.
 
 Escopo e regras principais
-Cada quiz deve conter exatamente 10 perguntas (regra fixa).
-O usuário poderá solicitar explicações/"dúvidas" sobre as perguntas (funcionalidade opcional por pergunta, mas disponível no sistema).
-O sistema deve exibir as fontes usadas para construir o quiz e deve privilegiar fontes confiáveis (ex.: sites institucionais, artigos científicos).
+Cada quiz deve conter exatamente 10 perguntas.
 
-Requisitos funcionais (RF)
-RF01 — Cadastro de usuário: O sistema deve permitir que um usuário crie uma conta informando, no mínimo, e-mail (ou usuário) e senha, validando campos obrigatórios.
+O usuário poderá solicitar explicações ou dúvidas sobre as perguntas, de forma opcional por questão.
 
-RF02 — Login e autenticação: O sistema deve permitir login com credenciais válidas e manter a sessão do usuário autenticado para acesso às funcionalidades do quiz.​
+O sistema deve exibir as fontes usadas para construir o quiz e deve privilegiar fontes confiáveis, como sites institucionais e artigos científicos.
+
+O sistema deve permitir regenerar um quiz sobre o mesmo tema, gerando um novo conjunto de perguntas.
+
+O sistema deve validar respostas, permitir revisão e destacar acertos e erros visualmente.
+
+Requisitos funcionais
+RF01 — Cadastro de usuário: O sistema deve permitir que um usuário crie uma conta informando, no mínimo, e-mail ou usuário e senha, validando campos obrigatórios.
+
+RF02 — Login e autenticação: O sistema deve permitir login com credenciais válidas e manter a sessão do usuário autenticado para acesso às funcionalidades do quiz.
 
 RF03 — Geração de quiz (10 perguntas): O sistema deve permitir que o usuário informe um tema e, a partir dele, gerar um quiz contendo exatamente 10 perguntas relacionadas ao tema.
-​
-RF04 — Persistência do histórico: O sistema deve salvar no banco de dados os últimos 3 quizzes gerados por usuário, incluindo pelo menos: tema, lista de perguntas, data/hora de criação e fontes.
+
+RF04 — Persistência do histórico: O sistema deve salvar no banco de dados os últimos 3 quizzes gerados por usuário, incluindo pelo menos tema, lista de perguntas, data e hora de criação e fontes.
 
 RF05 — Consulta de histórico: O sistema deve permitir que o usuário visualize os últimos 3 quizzes salvos e selecione um deles para revisão.
-​
-RF06 — Perguntar sobre uma pergunta: Em cada pergunta do quiz, o sistema deve permitir que o usuário envie uma pergunta de esclarecimento (ex.: "por que essa alternativa é correta?") e receba uma resposta da IA vinculada à questão.
-​
-RF07 — Exibição de fontes: O sistema deve apresentar uma aba para as fontes utilizadas para montar o quiz (por pergunta e/ou por quiz), exibindo ao menos título/descrição e link.
-​
-RF08 — Obtenção de respostas do quiz: O sistema deve gerar e apresentar as respostas das perguntas do quiz (por exemplo: gabarito e/ou explicação curta), vinculando cada resposta à respectiva pergunta.
-​
-RF09 — Critério de confiabilidade das fontes: O sistema deve priorizar fontes confiáveis (ex.: domínios institucionais, publicações científicas e repositórios acadêmicos) ao montar o quiz e ao justificar respostas.
-​
-RF10 — Logout, o sistema deve permitir que o usuário faça logout e retorne para a tela de login.
 
-RF11 — Mensagem de erro no login, o sistema deve mostrar uma mensagem quando o usuário informar dados incorretos.
-Requisitos não funcionais (RNF)
+RF06 — Perguntar sobre uma pergunta: Em cada pergunta do quiz, o sistema deve permitir que o usuário envie uma pergunta de esclarecimento e receba uma resposta da IA vinculada à questão.
 
-RF12 — Exibição do resultado do quiz, Após responder as perguntas, o sistema deve exibir a quantidade de acertos e erros do usuário.
+RF07 — Exibição de fontes: O sistema deve apresentar uma aba para as fontes utilizadas para montar o quiz, exibindo ao menos título, descrição e link.
 
-RF13 — Mostrar progresso do quiz, O sistema deve mostrar quantas perguntas já foram respondidas. Exemplo: Pergunta 4 de 10.
+RF08 — Obtenção de respostas do quiz: O sistema deve gerar e apresentar as respostas das perguntas do quiz, como gabarito e/ou explicação curta, vinculando cada resposta à respectiva pergunta.
 
-RF14 — Validação do tema, O sistema deve verificar se o usuário informou um tema válido antes de gerar o quiz. Exemplo de erro: "Digite um tema para gerar o quiz."
+RF09 — Critério de confiabilidade das fontes: O sistema deve priorizar fontes confiáveis, como domínios institucionais, publicações científicas e repositórios acadêmicos, ao montar o quiz e ao justificar respostas.
 
-RF15 — Limitar tamanho do tema. O sistema deve limitar o campo de tema para até 100 caracteres. Isso evita problemas com requisições.
+RF10 — Logout: O sistema deve permitir que o usuário faça logout e retorne para a tela de login.
 
-RF16 — Visualização das perguntas. O sistema deve apresentar uma pergunta por vez, permitindo navegar entre elas. Botões: Próxima e Anterior
+RF11 — Mensagem de erro no login: O sistema deve mostrar uma mensagem quando o usuário informar dados incorretos.
 
-RF17 — Confirmar envio do quiz. Antes de finalizar o quiz, o sistema deve pedir confirmação do usuário. Exemplo: "Tem certeza que deseja finalizar o quiz?"
+RF12 — Exibição do resultado do quiz: Após responder as perguntas, o sistema deve exibir a quantidade de acertos e erros do usuário.
 
-RF18 — Mensagem quando não houver histórico. Caso o usuário não tenha quizzes salvos, o sistema deve exibir a mensagem: "Você ainda não gerou nenhum quiz."
+RF13 — Mostrar progresso do quiz: O sistema deve mostrar quantas perguntas já foram respondidas, por exemplo: Pergunta 4 de 10.
 
-linha
+RF14 — Validação do tema: O sistema deve verificar se o usuário informou um tema válido antes de gerar o quiz, exibindo mensagem de erro quando necessário.
 
+RF15 — Limitar tamanho do tema: O sistema deve limitar o campo de tema para até 100 caracteres.
+
+RF16 — Visualização das perguntas: O sistema deve apresentar uma pergunta por vez, permitindo navegar entre elas com botões de próxima e anterior.
+
+RF17 — Confirmar envio do quiz: Antes de finalizar o quiz, o sistema deve pedir confirmação do usuário.
+
+RF18 — Mensagem quando não houver histórico: Caso o usuário não tenha quizzes salvos, o sistema deve exibir a mensagem: “Você ainda não gerou nenhum quiz.”
+
+RF19 — Atualização de dados do usuário: O sistema deve permitir que o usuário altere seus dados cadastrais básicos, como e-mail e senha, mediante confirmação da senha atual.
+
+RF20 — Recuperação de senha: O sistema deve permitir que o usuário solicite recuperação de senha por meio do e-mail cadastrado, enviando instruções para redefinição.
+
+RF21 — Regeração de quiz: O sistema deve permitir que o usuário gere novamente um quiz sobre o mesmo tema, criando um novo conjunto de perguntas sem reutilizar automaticamente o anterior.
+
+RF22 — Associação de respostas às alternativas: O sistema deve garantir que cada pergunta possua alternativas claramente identificadas, como A, B, C e D, e que a resposta correta esteja explicitamente associada a uma delas.
+
+RF23 — Bloqueio de envio sem resposta: O sistema deve impedir que o usuário finalize o quiz caso exista alguma pergunta não respondida, exibindo uma mensagem de alerta.
+
+RF24 — Revisão das respostas: Após finalizar o quiz, o sistema deve permitir que o usuário revise todas as perguntas, respostas escolhidas, respostas corretas e explicações.
+
+RF25 — Identificação visual de acertos e erros: O sistema deve destacar visualmente as respostas corretas e incorretas durante a revisão do quiz.
+
+RF26 — Registro do desempenho: O sistema deve armazenar, junto ao quiz, o desempenho do usuário, incluindo quantidade de acertos e erros.
+
+RF27 — Ordenação do histórico: O sistema deve exibir o histórico de quizzes ordenado do mais recente para o mais antigo.
+
+RF28 — Mensagem de erro na geração do quiz: O sistema deve exibir mensagens claras caso ocorra falha na comunicação com a API do Gemini, como timeout ou erro de autenticação.
+
+RF29 — Visualização de fontes por pergunta: O sistema deve permitir que o usuário visualize as fontes específicas utilizadas para cada pergunta do quiz.
+
+RF30 — Confirmação de logout: O sistema deve solicitar confirmação do usuário antes de efetuar o logout.
+
+RF31 — Controle de acesso ao histórico: O sistema deve garantir que cada usuário visualize apenas seus próprios quizzes e históricos.
+
+RF32 — Padronização do formato das perguntas: O sistema deve garantir que todas as perguntas sigam um formato padronizado, com enunciado, alternativas, resposta correta e explicação.
+
+RF33 — Registro de data e hora das interações: O sistema deve registrar a data e a hora das interações do usuário no quiz.
+
+Requisitos não funcionais
 RNF01 — Usabilidade: A interface deve ser simples e permitir gerar um quiz em poucos passos.
-​
-RNF02 — Desempenho: O sistema deve responder às ações principais (login, abrir histórico e exibir quiz já salvo) em tempo adequado, login e cadastro no máximo 3 segundos e gerar o quis no máximo 20 segundos.
 
-RNF03 — Segurança: Senhas devem ser armazenadas de forma segura (hash), e a aplicação deve proteger rotas autenticadas e dados do usuário.(opcional/se houver tempo)
-​
+RNF02 — Desempenho: O sistema deve responder às ações principais em tempo adequado, com login e cadastro em até 3 segundos, e geração do quiz em até 20 segundos.
 
-Tecnologias(não sei se utilizaremos essas tecnologias ainda)
+RNF03 — Segurança: As senhas devem ser armazenadas de forma segura, com hash, e a aplicação deve proteger rotas autenticadas e dados do usuário.
+
+Tecnologias
 Frontend: React + JavaScript.
-Backend/API: recomendado um backend (ex.: Node/Typescript) para intermediar autenticação, banco e chamadas à API do Gemini.
+
+Backend/API: recomendado backend em Node.js com TypeScript para intermediar autenticação, banco e chamadas à API do Gemini.
+
 Banco de dados: PostgreSQL.
-IA: Gemini API (Google AI for Developers).
 
+IA: Gemini API, da Google AI for Developers.
 
-Processos
-O usuario realiza cadastro informando e-mail e senha, e o sistema valida e armazena os dados com segurança (RF01, RNF03). Em seguida, realiza login com credenciais validas, iniciando uma sessao autenticada (RF02, RF11, RNF02, RNF03).
-Apos autenticado, o usuario informa um tema para estudo e solicita a geracao do quiz. O backend envia a solicitacao para a API do Gemini, que retorna exatamente 10 perguntas com respostas e fontes confiaveis (RF03, RF08, RF09, RNF02). O tempo maximo para geracao deve ser de ate 20 segundos (RNF02).
-O sistema salva no PostgreSQL o quiz gerado (tema, perguntas, data/hora e fontes), mantendo apenas os ultimos 3 quizzes por usuario (RF04). O usuario pode acessar e revisar quizzes anteriores pelo historico (RF05, RNF01).
-Em cada pergunta, o usuario pode enviar uma duvida, que sera respondida pela IA com base na questao e nas fontes utilizadas (RF06, RF07). O sistema exibe as fontes vinculadas ao quiz para garantir transparencia e confiabilidade (RF07, RF09).
-Por fim, o usuario pode realizar logout, encerrando sua sessao e retornando a tela de login (RF10, RNF03).
+Processo do sistema
+O usuário realiza cadastro informando e-mail e senha, e o sistema valida e armazena os dados com segurança. Em seguida, realiza login com credenciais válidas, iniciando uma sessão autenticada.
 
+Após autenticado, o usuário informa um tema para estudo e solicita a geração do quiz. O backend envia a solicitação para a API do Gemini, que retorna exatamente 10 perguntas com respostas e fontes confiáveis. O sistema deve respeitar o limite máximo de 20 segundos para essa geração.
+
+O sistema salva no PostgreSQL o quiz gerado, incluindo tema, perguntas, data e hora e fontes, mantendo apenas os últimos 3 quizzes por usuário. O usuário pode acessar e revisar quizzes anteriores pelo histórico.
+
+Em cada pergunta, o usuário pode enviar uma dúvida, que será respondida pela IA com base na questão e nas fontes utilizadas. O sistema também exibe as fontes vinculadas ao quiz para garantir transparência e confiabilidade.
+
+Por fim, o usuário pode realizar logout, encerrando sua sessão e retornando à tela de login.
 
 DOD
+Atende 100% dos critérios de aceitação.
 
-1. Atende 100% dos criterios de aceitacao.
+Regra das 10 perguntas validada.
 
-2. Regra das 10 perguntas validada.
+Histórico limitado aos últimos 3 quizzes.
 
-3. Historico limitado aos ultimos 3 quizzes.
+Fontes exibidas corretamente.
 
-4. Fontes exibidas corretamente.
-
-5. Perguntas de esclarecimento funcionando por questao.
-
+Perguntas de esclarecimento funcionando por questão.
 
 DOR
+Banco de dados PostgreSQL pronto para realizar os testes.
 
-1. Banco de dados Postgres, pronto para realizar os testes;
+API do Gemini com chave pronta para utilização.
 
-2. API do GEMINI(APIKEY) pronta para utilizar;
-
-3. Ambiente de desenvolvimento pronto para iniciar.
-
-
+Ambiente de desenvolvimento pronto para iniciar.
