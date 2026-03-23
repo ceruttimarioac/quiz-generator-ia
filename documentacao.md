@@ -1,9 +1,9 @@
-#Visão geral do projeto
+# Visão geral do projeto
 
 O projeto consiste em uma aplicação web de estudo que gera quizzes com auxílio de IA e permite que o usuário tire dúvidas sobre as questões. A aplicação utilizará a API do Gemini para geração de conteúdo e um banco de dados PostgreSQL para cadastro, autenticação, persistência de histórico e armazenamento dos quizzes. O frontend será desenvolvido em React com JavaScript.
 
 
-###Requisitos funcionais
+### Requisitos funcionais
 
 RF01 — Cadastro de usuário: O sistema deve permitir que um usuário crie uma conta informando, no mínimo, e-mail ou usuário e senha, validando campos obrigatórios.
 
@@ -72,14 +72,16 @@ RF32 — Padronização do formato das perguntas: O sistema deve garantir que to
 RF33 — Registro de data e hora das interações: O sistema deve registrar a data e a hora das interações do usuário no quiz.
 
 
-###Requisitos não funcionais
+### Requisitos não funcionais
+
 RNF01 — Usabilidade: A interface deve ser simples e permitir gerar um quiz em poucos passos.
 
 RNF02 — Desempenho: O sistema deve responder às ações principais em tempo adequado, com login e cadastro em até 3 segundos, e geração do quiz em até 20 segundos.
 
 RNF03 — Segurança: As senhas devem ser armazenadas de forma segura, com hash, e a aplicação deve proteger rotas autenticadas e dados do usuário.
 
-###Tecnologias
+
+### Tecnologias
 
 Frontend: React + JavaScript.
 
@@ -90,7 +92,7 @@ Banco de dados: PostgreSQL.
 IA: Gemini API, da Google AI for Developers.
 
 
-###Processo do sistema
+### Processo do sistema
 
 O usuário realiza cadastro informando e-mail e senha, e o sistema valida e armazena os dados com segurança. Em seguida, realiza login com credenciais válidas, iniciando uma sessão autenticada.
 
@@ -103,7 +105,7 @@ Em cada pergunta, o usuário pode enviar uma dúvida, que será respondida pela 
 Por fim, o usuário pode realizar logout, encerrando sua sessão e retornando à tela de login.
 
 
-###DOD
+### DOD
 
 Atende a 100% dos critérios de aceitação definidos.
 
@@ -118,7 +120,8 @@ Quiz gerado de acordo com o tema.
 Cadastrar e logar com sucesso.
 
 
-###DOR
+### DOR
+
 Banco de dados PostgreSQL pronto para realizar os testes.
 
 API do Gemini com chave pronta para utilização.
@@ -126,7 +129,7 @@ API do Gemini com chave pronta para utilização.
 Ambiente de desenvolvimento pronto para iniciar.
 
 
-###Testes
+### Testes
 
 Testes principais
 1. Cadastro de usuário
@@ -162,29 +165,7 @@ Será testado se o sistema impede o envio do quiz quando faltar resposta e se pe
 No código, o teste confere se a função de envio retorna alerta quando existir pergunta sem resposta.
 Também será testado se o logout encerra a sessão e volta para a tela de login.
 
-Forma simples de organizar
-Uma forma prática de implementar esses testes é usar:
 
-Testes unitários para validar funções pequenas, como checar campos vazios, contar perguntas e ordenar histórico.
-
-Testes de integração para validar a comunicação entre frontend, backend e banco de dados.
-
-O que será verificado no código
-Em resumo, os testes vão conferir se:
-
-o cadastro funciona;
-
-o login funciona;
-
-o quiz sempre tem 10 perguntas;
-
-o histórico salva e limita os últimos 3 quizzes;
-
-as fontes aparecem corretamente;
-
-o usuário consegue revisar, responder e sair do sistema;
-
-as regras de erro e validação aparecem quando necessário.
 
 
 
