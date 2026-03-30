@@ -9,52 +9,21 @@ Outro diferencial é que a plataforma guarda o histórico dos quizzes realizados
 
 ### Requisitos funcionais
 
-Os requisitos foram organizados abaixo de acordo com o fluxo real de uso do sistema, para facilitar o entendimento do que o usuário faz do início ao fim.
+RF1: O sistema deverá disponibilizar uma tela de login e cadastro, permitindo que o usuário se cadastre e acesse a aplicação por meio de login.
+  RF1.1: Para realizar o login e o cadastro, deverão ser utilizados e-mail institucional e senha.
 
-RF01 — Acesso à plataforma  
-O sistema deve permitir que o usuário crie conta, entre com seus dados e saia da plataforma com segurança. O cadastro deve solicitar pelo menos e-mail e senha. No login, o sistema deve liberar o acesso apenas com dados válidos e manter o usuário autenticado durante o uso.
-Exemplo: o usuário cria uma conta com e-mail e senha, faz login e entra na área principal para gerar quizzes.
-Tratativas de erro: caso algum campo esteja vazio, o e-mail já esteja cadastrado ou a senha esteja incorreta, o sistema deve informar o problema de forma clara. No logout, deve haver confirmação antes de encerrar a sessão.
+RF2: Após realizar o login, o usuário deverá ser direcionado para a tela inicial (home), que deverá conter um menu no lado esquerdo da tela.
+  RF2.1: O menu deverá disponibilizar a opção QUIZ/IA e Logout.
 
-RF02 — Recuperação e atualização de conta  
-O sistema deve permitir que o usuário recupere o acesso à conta e atualize seus dados básicos quando necessário. Isso inclui solicitar redefinição de senha e alterar informações cadastrais mediante confirmação da senha atual.
-Exemplo: o usuário esquece a senha, solicita recuperação pelo e-mail cadastrado e depois altera sua senha antiga por uma nova.
-Tratativas de erro: caso o e-mail informado não exista, a senha atual esteja incorreta ou os novos dados sejam inválidos, o sistema deve avisar o motivo e impedir a alteração.
+RF3: A tela QUIZ/IA deverá disponibilizar, na parte inferior da aplicação, um campo para digitação do tema.
+  RF3.1: Deverá apresenta um aviso ao usuário que o QUIZ está sendo gerado;
+  RF3.2: Após a geração e retorno do QUIZ, as questões deverão ser apresentadas na tela de forma sequencial, em cascata, e,
+         no canto direito, deverá ser exibida uma área destinada ao esclarecimento de dúvidas relacionadas às questões.
+  RF3.3: Ao final de cada questão, deverão ser apresentadas as fontes utilizadas na elaboração da pergunta e das respectivas
+         respostas.
 
-RF03 — Geração de quiz por tema  
-O sistema deve permitir que o usuário informe um tema de estudo e receba um quiz com exatamente 10 perguntas relacionadas ao assunto. O conteúdo precisa vir organizado, com enunciado, quatro alternativas identificadas, resposta correta e explicação curta.
-Exemplo: ao digitar "Revolução Francesa", o usuário recebe 10 perguntas objetivas sobre o tema, com alternativas de A a D e explicações para revisão.
-Tratativas de erro: o sistema deve bloquear tema vazio, muito genérico ou com mais de 100 caracteres. Se houver falha ao gerar o quiz, deve exibir uma mensagem como "Não foi possível gerar o quiz agora. Tente novamente em instantes."
-
-RF04 — Condução do quiz durante a resolução  
-O sistema deve apresentar uma pergunta por vez, mostrando o andamento da atividade e permitindo navegar entre próxima e anterior sem perder respostas já marcadas. Antes de finalizar, o usuário deve confirmar o envio.
-Exemplo: durante a resolução, o sistema exibe "Pergunta 4 de 10", permitindo voltar para revisar uma resposta anterior antes de concluir.
-Tratativas de erro: o sistema não deve permitir finalizar o quiz com perguntas em branco. Nesse caso, deve alertar o usuário para completar as respostas pendentes antes do envio.
-
-RF05 — Resultado, revisão e apoio ao aprendizado  
-Depois da finalização, o sistema deve mostrar o resultado do quiz com quantidade de acertos e erros, além de permitir revisar cada pergunta com a resposta escolhida, a resposta correta e uma explicação. As respostas corretas e incorretas devem ser destacadas visualmente.
-Exemplo: ao concluir o quiz, o usuário visualiza que acertou 7 de 10 perguntas e pode abrir a revisão para entender cada erro.
-Tratativas de erro: se houver falha ao carregar o resultado ou a revisão, o sistema deve informar que os dados não puderam ser exibidos naquele momento e oferecer nova tentativa.
-
-RF06 — Dúvidas e fontes de apoio  
-Em cada pergunta, o sistema deve permitir que o usuário faça uma dúvida específica e receba uma resposta relacionada àquela questão. Também deve apresentar as fontes utilizadas para montar o quiz, com título, descrição e link, incluindo quando possível as fontes ligadas a cada pergunta.
-Exemplo: após errar uma questão, o usuário pergunta "Por que a alternativa B está incorreta?" e recebe uma explicação relacionada ao conteúdo da pergunta.
-Tratativas de erro: se a resposta da dúvida não puder ser gerada ou se as fontes não estiverem disponíveis no momento, o sistema deve avisar isso ao usuário sem interromper o restante do quiz.
-
-RF07 — Histórico e acompanhamento do usuário  
-O sistema deve salvar os últimos 3 quizzes gerados por cada usuário, mantendo o histórico organizado do mais recente para o mais antigo. Cada registro deve guardar tema, perguntas, respostas, fontes, data, hora e desempenho da atividade.
-Exemplo: o usuário gera quizzes sobre "Matemática", "Biologia" e "Geografia" e consegue retornar depois para revisar qualquer um deles.
-Tratativas de erro: se não houver histórico salvo, o sistema deve exibir a mensagem "Você ainda não gerou nenhum quiz." O sistema também deve garantir que cada usuário visualize apenas o próprio histórico.
-
-RF08 — Nova tentativa de estudo  
-O sistema deve permitir que o usuário gere um novo quiz sobre o mesmo tema, criando uma nova tentativa para reforçar o aprendizado, sem simplesmente repetir automaticamente o conjunto anterior.
-Exemplo: depois de revisar um quiz sobre "Sistema Solar", o usuário pode gerar uma nova rodada de perguntas para continuar estudando o mesmo assunto.
-Tratativas de erro: caso a nova geração não seja concluída, o sistema deve manter o quiz anterior salvo e informar que a nova tentativa não pôde ser criada.
-
-RF09 — Registro das interações  
-O sistema deve registrar data e hora das principais ações do usuário, como geração do quiz, finalização da tentativa e interações de dúvida, para manter o acompanhamento organizado.
-Exemplo: ao abrir o histórico, o usuário consegue identificar quando cada quiz foi criado e quando foi respondido.
-Tratativas de erro: se alguma informação de data e hora não puder ser registrada, o sistema deve preservar o restante do histórico e sinalizar a inconsistência para correção interna.
+RF4: Deverá ser disponibilizado, no canto superior direito, um botão para finalizar o QUIZ antes da sua conclusão.
+  RF4.1: Ao acionar essa opção, o sistema deverá redirecionar o usuário para a tela de perguntas do QUIZ, definida no RF3.
 
 
 ### Requisitos não funcionais
