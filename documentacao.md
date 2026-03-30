@@ -48,19 +48,6 @@ Banco de dados: PostgreSQL.
 IA: Gemini API, da Google AI for Developers.
 
 
-### Processo do sistema
-
-O fluxo principal do sistema começa com o acesso do usuário. Primeiro, ele cria sua conta ou entra com seus dados já cadastrados. Se houver erro no login, no cadastro ou na recuperação de senha, o sistema deve informar de maneira objetiva o que precisa ser corrigido.
-
-Depois de entrar na plataforma, o usuário informa o tema que deseja estudar. O sistema valida esse tema e, se estiver tudo certo, gera um quiz com 10 perguntas. Caso o tema esteja vazio, seja inválido ou aconteça alguma falha na geração, o usuário deve receber uma mensagem clara sem perder a navegação da plataforma.
-
-Com o quiz pronto, o usuário responde uma pergunta por vez, acompanha seu progresso e pode voltar ou avançar entre as questões antes de finalizar. Se tentar enviar o quiz com alguma pergunta em branco, o sistema deve bloquear a ação e orientar o preenchimento.
-
-Ao concluir a atividade, o sistema apresenta o resultado com acertos e erros, permite revisar as respostas e entender os motivos de cada alternativa correta. Durante essa revisão, o usuário também pode consultar fontes e tirar dúvidas específicas sobre cada pergunta.
-
-Por fim, o sistema salva o quiz no histórico do usuário, mantendo apenas os 3 registros mais recentes, para que ele possa revisar conteúdos estudados anteriormente e acompanhar sua evolução. Quando quiser encerrar o uso, o usuário pode sair da conta mediante confirmação.
-
-
 ### DOD
 
 Atende a 100% dos critérios de aceitação definidos.
