@@ -40,74 +40,74 @@ RNF04 — Confiabilidade: O sistema deve apresentar perguntas, respostas, explic
 
 Casos de Uso
 
-UC01 – Cadastro
-Ator: Usuário
-Pré-condição: Usuário não possui conta
-Fluxo: Acessa cadastro → informa e-mail e senha → sistema valida → cria conta → confirma
-Exceções: Dados inválidos ou e-mail já cadastrado
+UC01 – Cadastro   
+Ator: Usuário  
+Pré-condição: Usuário não possui conta  
+Fluxo: Acessa cadastro → informa e-mail e senha → sistema valida → cria conta → confirma  
+Exceções: Dados inválidos ou e-mail já cadastrado  
 
-UC02 – Login
-Ator: Usuário
-Pré-condição: Usuário cadastrado
-Fluxo: Acessa login → informa dados → sistema valida → autentica → redireciona
-Exceções: Credenciais inválidas
+UC02 – Login  
+Ator: Usuário  
+Pré-condição: Usuário cadastrado  
+Fluxo: Acessa login → informa dados → sistema valida → autentica → redireciona  
+Exceções: Credenciais inválidas  
 
-UC03 – Gerar quiz
-Ator: Usuário
-Pré-condição: Usuário autenticado
-Fluxo: Informa tema → solicita geração → sistema processa → exibe 10 perguntas
-Exceções: Tema inválido ou falha na API
+UC03 – Gerar quiz  
+Ator: Usuário  
+Pré-condição: Usuário autenticado  
+Fluxo: Informa tema → solicita geração → sistema processa → exibe 10 perguntas  
+Exceções: Tema inválido ou falha na API  
 
-UC04 – Histórico
-Ator: Usuário
-Pré-condição: Usuário autenticado
-Fluxo: Acessa histórico → visualiza quizzes → seleciona → sistema exibe
-Exceções: Nenhum histórico disponível
+UC04 – Histórico   
+Ator: Usuário   
+Pré-condição: Usuário autenticado    
+Fluxo: Acessa histórico → visualiza quizzes → seleciona → sistema exibe  
+Exceções: Nenhum histórico disponível  
 
-UC05 – Finalizar quiz
-Ator: Usuário
-Pré-condição: Quiz em andamento
-Fluxo: Solicita finalização → sistema pede confirmação → finaliza
-Exceções: Cancelamento ou perguntas sem resposta
+UC05 – Finalizar quiz  
+Ator: Usuário  
+Pré-condição: Quiz em andamento  
+Fluxo: Solicita finalização → sistema pede confirmação → finaliza  
+Exceções: Cancelamento ou perguntas sem resposta  
 
 ### Cenários BDD
 
-Cenário: Cadastro
-Dado que o e-mail não está cadastrado
-Quando o usuário informa dados válidos
-Então a conta deve ser criada
+Cenário: Cadastro  
+Dado que o e-mail não está cadastrado  
+Quando o usuário informa dados válidos  
+Então a conta deve ser criada  
 
-Cenário: Cadastro inválido
-Dado que o e-mail já está cadastrado
-Quando o usuário tenta se cadastrar
-Então o sistema deve exibir erro
+Cenário: Cadastro inválido   
+Dado que o e-mail já está cadastrado  
+Quando o usuário tenta se cadastrar  
+Então o sistema deve exibir erro  
 
-Cenário: Login
-Dado que o usuário possui cadastro
-Quando ele informa credenciais corretas
-Então deve acessar o sistema
+Cenário: Login  
+Dado que o usuário possui cadastro  
+Quando ele informa credenciais corretas  
+Então deve acessar o sistema  
 
-Cenário: Login inválido
-Quando o usuário informa dados incorretos
-Então deve receber erro
+Cenário: Login inválido  
+Quando o usuário informa dados incorretos  
+Então deve receber erro  
+  
+Cenário: Gerar quiz  
+Dado que o usuário está autenticado  
+Quando informa um tema válido  
+Então o sistema gera 10 perguntas  
 
-Cenário: Gerar quiz
-Dado que o usuário está autenticado
-Quando informa um tema válido
-Então o sistema gera 10 perguntas
+Cenário: Erro na geração  
+Quando ocorre falha na API  
+Então o sistema informa erro  
 
-Cenário: Erro na geração
-Quando ocorre falha na API
-Então o sistema informa erro
+Cenário: Histórico  
+Quando o usuário acessa o histórico   
+Então visualiza os últimos 3 quizzes  
 
-Cenário: Histórico
-Quando o usuário acessa o histórico
-Então visualiza os últimos 3 quizzes
-
-Cenário: Finalizar quiz
-Dado que há um quiz em andamento
-Quando o usuário solicita finalizar
-Então o sistema pede confirmação
+Cenário: Finalizar quiz  
+Dado que há um quiz em andamento  
+Quando o usuário solicita finalizar  
+Então o sistema pede confirmação  
 
 ### Tecnologias
 
