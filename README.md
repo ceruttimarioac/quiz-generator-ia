@@ -1,2 +1,7 @@
-# quiz-generator-ia
-Um gerador de questões com IA, também irá responder dúvidas sobre as questões e o conteúdo.
+### Rodar
+npm install
+
+npm install @google/genai
+
+### Rodar
+npm run dev
