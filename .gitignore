@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Local API config
+src/service/config-gemini.js
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
