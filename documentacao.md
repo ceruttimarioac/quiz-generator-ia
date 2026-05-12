@@ -28,13 +28,15 @@ RF4: Deverá ser disponibilizado, no canto superior direito, um botão para fina
 
 ### Requisitos não funcionais
 
-RNF01 — Usabilidade: A interface deve ser simples, organizada e intuitiva, permitindo que o usuário consiga navegar pelo sistema, gerar um quiz e visualizar seus resultados sem dificuldade.
+RNF01: A aplicação será acessada por página na WEB.
 
-RNF02 — Desempenho: O sistema deve responder às ações principais em tempo adequado, garantindo boa fluidez de uso. O login e o cadastro devem ocorrer em até 3 segundos, e a geração do quiz deve acontecer em até 20 segundos.
+RNF02: A página deve ser responsiva para todos os dispositivos.
 
-RNF03 — Segurança: As senhas devem ser armazenadas de forma segura, com hash, e a aplicação deve proteger rotas autenticadas, o histórico dos quizzes e os dados individuais de cada usuário.
+RNF03: Deve gerar o quiz em no máximo 35 segundos.
 
-RNF04 — Confiabilidade: O sistema deve apresentar perguntas, respostas, explicações e fontes coerentes com o tema informado, buscando reduzir conteúdos inconsistentes ou fora de contexto.
+RNF05: Apenas usuários autorizados podem utilizar a aplicação, authenticados por uma tela de login.
+
+RNF06: 
 
 ### USE CASE
 
