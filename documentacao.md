@@ -36,7 +36,7 @@ RNF03: Deve gerar o quiz em no máximo 35 segundos.
 
 RNF05: Apenas usuários autorizados podem utilizar a aplicação, authenticados por uma tela de login.
 
-RNF06: 
+RNF06: A interface deve ser simples, limpa e intuitiva, de forma a não dificultar a utilização pelo usuário.
 
 ### USE CASE
 
