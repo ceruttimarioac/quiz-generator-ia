@@ -38,6 +38,8 @@ RNF05: Apenas usuários autorizados podem utilizar a aplicação, authenticados 
 
 RNF06: A interface deve ser simples, limpa e intuitiva, de forma a não dificultar a utilização pelo usuário.
 
+RNF7: Deverá utilizar a API do Gemini para gerar o quiz.
+
 ### USE CASE
 
 Casos de Uso
