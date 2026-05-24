@@ -1,0 +1,27 @@
+/* Para remover as margens de tudo */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Boa prática para os tamanhos funcionarem direito */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: green;
+  /* Ativa o flexbox no corpo da página */
+  display: flex; 
+  /* Centraliza horizontalmente, esquerda para a direita */
+  justify-content: center; 
+  /* 3. Centraliza verticalmente, de cima para baixo */
+  align-items: center; 
+  /* Força a página a ter 100% da altura da tela */
+  height: 100vh; 
+}
+
+/* Para a "caixa" nao ficar transparente */
+.page {
+  background-color: rgb(249, 249, 249);
+  padding: 30px;
+  border-radius: 10px; /* Bordas arredondadas */
+  text-align: center;  /* Centraliza o texto e o botão dentro da caixa branca */
+}
