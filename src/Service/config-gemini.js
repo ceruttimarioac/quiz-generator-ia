@@ -28,7 +28,7 @@ export async function GeneratorQuiz(input_tema) {
           type: Type.OBJECT,
           properties: {
             num_question: {
-              type: Type.INTEGER,
+              type: Type.INTEGER, 
               description: 'Número da questão'
             },
             question: {
