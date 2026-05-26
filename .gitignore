@@ -13,7 +13,7 @@ dist-ssr
 *.local
 
 # Local API config
-src/service/config-gemini.js
+.env
 
 # Editor directories and files
 .vscode/*
